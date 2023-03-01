@@ -12,8 +12,8 @@ function DashboardNavbar() {
         <Navbar.Brand href="/signup">Astor</Navbar.Brand>
         {/* <Navbar.Brand style={{paddingLeft:"500px"}}>Advisor Dashboard</Navbar.Brand> */}
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse  className="justify-content-end" >
-          <Nav className="ml-auto">
+        <Navbar.Collapse  id="basic-navbar-nav" >
+          <Nav className="ms-auto">
             <Nav.Link  href="/signup">Sign Out</Nav.Link >
             {/* <Nav.Link href="#link">Link</Nav.Link> */}
             {/* <NavDropdown className="justify-content-end" title="Sign In" id="basic-nav-dropdown">

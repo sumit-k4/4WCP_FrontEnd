@@ -92,7 +92,7 @@ const ClientLogin = () => {
         <><Header /><div className='ComponentBackground'>
             <div className="container mt-3">
                 <section className='d-flex justify-content-between'>
-                    <div className="left_data mt-3 p-3" style={{ width: "100%" }}>
+                    <div className="middle_data mt-3 p-3" style={{ width: "100%" }}>
                         <h3  style={{marginTop:"2rem"}} className='text-center col-lg-6'>Sign In as Client</h3>
                         <Form>
 
@@ -105,14 +105,14 @@ const ClientLogin = () => {
 
                                 <Form.Control type="password" name='password' onChange={getdata} placeholder="Password" />
                             </Form.Group>
-                            <Button href="/login/advisor/dashboard"  variant="dark" className='col-lg-6' onClick={addData} type="submit">
+                            <Button  variant="dark" className='col-lg-6' onClick={addData} type="submit">
                                 Log In
                             </Button>
                         </Form>
                         {/* <p className='mt-3'>Already Have an Account <span>SignIn</span> </p> */}
                         <p className=" text-right"> <Link to="/login/advisor/forgotpassword" style={{ textDecoration: "none" }}>Forgot Password?</Link></p>
                     </div>
-                    <SIgn_img />
+                    {/* <SIgn_img /> */}
                 </section>
                 <ToastContainer />
             </div>

@@ -11,8 +11,8 @@ function Header() {
       <Container className='container-fluid' >
         <Navbar.Brand href="/signup">Astor</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse  className="justify-content-end" >
-          <Nav className="ml-auto">
+        <Navbar.Collapse  id="basic-navbar-nav" >
+          <Nav className="ms-auto">
             <Nav.Link  href="/signup">Sign Up</Nav.Link >
             {/* <Nav.Link href="#link">Link</Nav.Link> */}
             <NavDropdown className="justify-content-end" title="Sign In" id="basic-nav-dropdown">

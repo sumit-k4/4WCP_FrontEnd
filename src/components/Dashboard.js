@@ -6,6 +6,9 @@ import DashboardNavbar from './DashboardNavbar';
 import {Clients} from './ClientList';
 import { Link ,useNavigate} from 'react-router-dom';
 import { MdDelete, MdEdit } from "react-icons/md";
+import axios from 'axios';
+import { toast } from 'react-toastify';
+
 
 
 
@@ -14,6 +17,19 @@ const Dashboard = () =>{
 
     let history = useNavigate();
     const handleDelete = (id)=>{
+        // if(window.confirm("Are you sure you want this client?") == true){
+        //     axios.delete("Delete URL")
+        //     .then((result)=>{
+        //         if(result.status===200){
+        //             toast.success("Client has been deleted")
+        //         }
+        //     })
+        //     .catch((error)=>{
+        //         toast.error(error)
+        //     })
+        // }
+
+
         var index = Clients.map(function(e){
             return e.id
         }).indexOf(id);
@@ -36,7 +52,9 @@ const Dashboard = () =>{
             <Container>
                 <h2 style={{ marginBottom: "10px", marginTop: "20px" }}>Welcome, Advisor</h2>
                 <Button variant="dark" href="/login/advisor/dashboard" style={{ marginBottom: "30px", marginRight: "20px" }}>Client List</Button>
-                <Button variant="dark" style={{ marginBottom: "30px" }}>Investments</Button>
+                <Button variant="dark" style={{ marginBottom: "30px",marginRight: "" }}>Investments</Button>
+                {/* <Button  variant="danger" style={{ marginBottom: "30px", marginLeft:"600px" }}>Sign Out</Button> */}
+
 
                 <Table striped bordered hover size="lg">
                     <thead>

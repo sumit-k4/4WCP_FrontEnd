@@ -60,7 +60,7 @@ const EditClient = () => {
             
 
             <Form.Group className="mb-3" controlId="formProposed">
-                <Form.Control type="text" placeholder="Enter new proposed amount" required onChange={(e) => setProposed(e.target.value)}></Form.Control>
+                <Form.Control  type="text" placeholder="Enter new proposed amount" required onChange={(e) => setProposed(e.target.value)}></Form.Control>
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formPending">
