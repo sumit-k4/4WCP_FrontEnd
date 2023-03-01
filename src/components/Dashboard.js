@@ -1,4 +1,4 @@
-import React,{Fragment} from 'react';
+import React,{Fragment, useEffect} from 'react';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import { Container } from 'react-bootstrap';
@@ -16,6 +16,12 @@ const Dashboard = () =>{
 
 
     let history = useNavigate();
+
+    useEffect(()=>{
+        if(!localStorage.getItem('token')){
+            history('/login/advisor')
+        }
+    },[])
     const handleDelete = (id)=>{
         // if(window.confirm("Are you sure you want this client?") == true){
         //     axios.delete("Delete URL")

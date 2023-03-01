@@ -3,7 +3,7 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import SIgn_img from './SignImg'
 import { Link, useNavigate } from 'react-router-dom'
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer,  } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { NavLink } from 'react-router-dom';
 import "./Background.css";
@@ -13,9 +13,10 @@ import axios from 'axios';
 
 const AdvisorLogin = () => {
 
+    let navigate = useNavigate();
     const initialValues = { 
                             email: "", 
-                            password: ""
+                            password: "",
                           };
 
 
@@ -32,19 +33,26 @@ const AdvisorLogin = () => {
         e.preventDefault();
         setFormErrors(validate(formValues));
         setIsSubmit(true);
+
         let url = 'https://localhost:7278/api/user/login';
+        // let url ='https://reqres.in/api/login'
         let config = {
             headers: {
                 'Access-Control-Allow-Origin': '*',
-                'Content-Type': '*',
+                'Content-Type': 'application/json',
                 'accept':'plain/text'
             }
         }
-        axios.post(url,formValues,config).then((result)=>{
-            console.log(result.body);
-        }).catch((err)=>{
-            alert(err);
-        })
+        if (Object.keys(formErrors).length === 0 && isSubmit){
+            axios.post(url,formValues).then((result)=>{
+                console.log(result.data);
+                alert('success')
+                localStorage.setItem('token',result.data)
+                navigate('/login/advisor/dashboard')
+            }).catch((err)=>{
+                alert(err);
+            })
+        }
     };
 
     useEffect(() => {
@@ -55,10 +63,10 @@ const AdvisorLogin = () => {
     }, [formErrors]);
     const validate = (values) => {
         const errors = {};
-        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-        if (!values.username) {
-        errors.username = "Username is required!";
-        }
+        // const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+        // if (!values.username) {
+        // errors.username = "Username is required!";
+        // }
 
         if (!values.email) {
         errors.email = "Email is required!";
@@ -68,7 +76,9 @@ const AdvisorLogin = () => {
         errors.password = "Password is required!";
         } 
 
-    }
+        return errors;
+
+    };
 
     
 

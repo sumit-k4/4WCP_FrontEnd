@@ -3,7 +3,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header';
 // import SignUp from './components/ClientSignup';
 import ClientLogin from './components/ClientLogin';
-import Details from './components/Details';
 import Errror from './components/Errror';
 import {Routes,Route} from "react-router-dom"
 import SignUp from './components/AdvisorSignup';
@@ -24,7 +23,6 @@ function App() {
       <Route path='/' element={<SignUp />} />
       <Route path='/signup' element={<SignUp />} />
       <Route path='/login/advisor' element={<AdvisorLogin />} />
-      <Route path='/details' element={<Details />} />
       <Route path='*' element={<Errror />} />
       <Route path='/login/client' element={<ClientLogin/>}/>
       <Route path='/login/client/forgotpassword' element={<ClientForgotPassword/>}/>
